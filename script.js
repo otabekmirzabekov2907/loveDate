@@ -124,17 +124,22 @@ confirmBtn.addEventListener("click", () => {
     music.currentTime = 0;
     music.play();
 
-    // Прячем открытку
     document.getElementById("finalScreen").style.display = "none";
-
-    // Показываем финальное сообщение
     document.getElementById("thanksMessage").classList.add("show");
 
-    // Много сердечек
-    for(let i=0;i<150;i++){
-
-        setTimeout(createHeart, i*25);
-
+    for (let i = 0; i < 150; i++) {
+        setTimeout(createHeart, i * 25);
     }
+
+    // +998931634398
+    const phone = "998931634398"; 
+
+    const message = encodeURIComponent(`Привет ❤️
+
+Я согласна на свидание 🥰`);
+
+    setTimeout(() => {
+    window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+}, 3000);
 
 });

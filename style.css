@@ -1,0 +1,200 @@
+/* Сброс */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Страница */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: linear-gradient(135deg, #ffb6d9, #ffd9ea, #fff0f7);
+}
+
+/* Карточка */
+.card {
+    width: 430px;
+    padding: 40px;
+
+    background: rgba(255,255,255,.8);
+    backdrop-filter: blur(15px);
+
+    border-radius: 30px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,.15);
+
+    animation: show .5s ease;
+}
+
+/* Анимация появления */
+@keyframes show {
+    from {
+        opacity: 0;
+        transform: scale(.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Заголовки */
+h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-bottom: 30px;
+    line-height: 1.5;
+    color: #444;
+}
+
+/* Контейнер кнопок */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Все кнопки */
+button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+/* Да */
+#yes {
+    background: #ff4f87;
+    color: white;
+}
+
+#yes:hover {
+    transform: scale(1.05);
+}
+
+/* Нет */
+#no {
+    background: #e5e5e5;
+    position: relative;
+}
+
+/* Кнопки выбора */
+.choice {
+    width: 100%;
+    margin-top: 12px;
+
+    background: #ff6f9e;
+    color: white;
+}
+
+.choice:hover {
+    transform: scale(1.03);
+}
+
+/* Падающие сердечки */
+.heart {
+    position: fixed;
+    top: -50px;
+    pointer-events: none;
+    user-select: none;
+
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+
+    0% {
+        transform: translateY(-50px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+
+}
+/* Финальное сообщение */
+#thanksMessage{
+
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    background:rgba(255,192,203,.95);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.6s;
+
+    z-index:9999;
+
+}
+
+#thanksMessage.show{
+
+    opacity:1;
+    visibility:visible;
+
+}
+
+#thanksMessage h1{
+
+    font-size:60px;
+    color:#ff2f75;
+
+    animation:pulse 1s infinite;
+
+}
+
+#thanksMessage p{
+
+    margin-top:30px;
+
+    font-size:34px;
+
+    text-align:center;
+
+    color:#444;
+
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.12);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
